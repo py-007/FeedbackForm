@@ -7,6 +7,10 @@
 </head>
 <body>
     <center>
+        {% if submitted == True %}
+        <h2>Thanks for you feedback..</h2>
+        <button><a href="{% url 'feedbacks' %}">View Feedbacks</a></button>
+        {% else %}
         <h1>Enter your Feedback below</h1>
         <form action="" method="post">
             {% csrf_token %}
@@ -14,8 +18,12 @@
             <br>
             <textarea id="" name="feedback">Feedback...</textarea>
             <br>
-            <button>Submit</button>
+            <button >Submit</button>
         </form>
     </center>
+    <button><a href="{% url 'feedbacks' %}">View Feedbacks</a></button>
+
+    {% endif %}
+    <h1>{{submitted}}</h1>
 </body>
 </html>

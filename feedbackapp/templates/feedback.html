@@ -6,6 +6,18 @@
     <title>Document</title>
 </head>
 <body>
-    <center><h1>All the feedbacks   </h1></center>
+
+    {% if all_feedbacks %}
+    <center><h1>All the feedbacks  </h1></center>
+    {% for i in all_feedbacks %}
+    <ul>
+            <h2><li>{{i.id}}.{{i.name}}</li></h2>
+        <h3><li>{{i.feedback}}</li></h3>
+    </ul>
+    {% endfor %}
+    {% else %}
+    <p>No feedbacks are collected</p>
+    {% endif %}
+    <button><a href="{% url 'form' %}">Home</a></button>
 </body>
 </html>
